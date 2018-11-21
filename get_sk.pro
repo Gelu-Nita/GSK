@@ -4,7 +4,7 @@
 ;
 ; PURPOSE:
 ;       This function computes the the Generalized Spectral Kurtosis estimator corresponding to a set of
-;       accumulated powers (s1) and squared powers (s2) over an accumulatin length M
+;       accumulated powers (s1) and squared powers (s2) over an accumulation length M
 ;
 ; CATEGORY:
 ;       Numerical Analysis.
