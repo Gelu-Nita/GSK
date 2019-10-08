@@ -68,7 +68,7 @@ function GSK,M,N=N,d=d,PFA=PFA
 	 p=double(pfa)
 	 M=double(M)
 	 Nd=double(N*d)
-     PFA=double(PFA)
+   PFA=double(PFA)
 
 	 ;Compute GSK moments according to equation 9 (used in threshold computation)
 	 m1=1d
