@@ -36,10 +36,22 @@
 ;
 ; MODIFICATION HISTORY:
 ;           Written April 2010 by Gelu M. Nita (gnita@njit.edu)
-;
+;           Jan 2020 GN: Added option to renormalize to unity and retrieve the PFA thresholds
 ;-
 
-function get_sk,s1,s2,m,d=d
-default,d,1
-return,(m*d+1)*(m*s2/s1^2-1)/(m-1)
+function get_sk,s1,s2,m,d=d,norm=norm,th=th, pfa=pfa
+if ~keyword_set(norm) then begin
+  default,d,1
+  sk=(m*d+1)*(m*s2/s1^2-1)/(m-1)
+endif else begin
+  mm=max([M],/nan)
+  mu=median((mm+1)*(mm*s2/s1^2-1)/(mm-1))
+  d=(mm-mu+1)/(mu*mm)
+  sk=(mm*d+1)*(mm*s2/s1^2-1)/(mm-1)
+endelse
+ if arg_present(th) then begin
+  mm=max([M],/nan)
+  th=gsk(mm,d=d,pfa=pfa)
+ endif
+ return,sk
 end
